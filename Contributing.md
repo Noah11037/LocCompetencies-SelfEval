@@ -4,127 +4,182 @@ Thank you for your interest in contributing to this project! We welcome contribu
 
 ## How to Contribute
 
-### For Students in Website Localization
+We welcome several types of contributions:
+- **Localization/Translation** - Adding new language versions (especially students working on assignments)
+- **Bug Reports** - Helping us identify and fix issues
+- **Feature Requests** - Suggesting improvements
+- **Documentation** - Improving guides and instructions
 
-If you're completing a Spanish localization assignment:
+Jump to the section most relevant to you, or read through for a complete understanding.
 
-1. **Fork the repository** to your GitHub account
-2. **Clone your fork** to your local machine
-3. **Create a new branch** for your work:
-   ```bash
-   git checkout -b spanish-localization
-   ```
-4. **Complete the localization tasks**:
-   - Translate `en-us.json` → `es-mx.json`
-   - Copy and adapt `LocCompetencies_en-US.html` → `LocCompetencies_es-MX.html`
-   - Update language-specific elements (lang attribute, meta tags, etc.)
+---
 
-5. **Customize CSS for your target audience** (Optional but recommended):
-   - Open `locessential-styles.css`
-   - Modify the CSS variables in the `:root` section to match your organization's branding:
-     ```css
-     :root {
-         --primary-color: #1c6399;      /* Main brand color */
-         --secondary-color: #2b7bb9;    /* Secondary brand color */
-         --accent-color: #50A5E6;       /* Accent/highlight color */
-         --success-color: #3dd598;      /* Success indicators (strengths) */
-         --pink-accent: #ef91c6;        /* Used for areas needing development */
-     }
-     ```
-   - **Example for a Mexican university**:
-     ```css
-     :root {
-         --primary-color: #1a472a;      /* Deep green */
-         --secondary-color: #2d5f3f;    /* Forest green */
-         --accent-color: #d4af37;       /* Gold accent */
-         --success-color: #2d5f3f;      /* Forest green */
-     }
-     ```
-   - Update footer copyright and contact information to reflect your organization
-   - **Tip**: Test color contrast for accessibility (use tools like WebAIM's Contrast Checker)
-   - **Important**: Start by keeping all class names unchanged - only modify color values and text
+## For Students in Website Localization
 
-6. **Enable Spanish functionality** in `resource-loader.js`:
-   - Find the `SPANISH_COMING_SOON` constant (around line 30)
-   - Change `const SPANISH_COMING_SOON = true;` to `const SPANISH_COMING_SOON = false;`
-   - This will disable the "coming soon" message and enable actual language switching
+If you're completing a Spanish localization assignment, follow these steps:
 
-7. **Test your work** thoroughly in a browser:
-   - Check all translated text displays correctly
-   - Verify color scheme works well and is accessible
-   - Test language switching functionality
-   - Ensure responsive design works on mobile
-   - Print preview to ensure print styles work
+### 1. Fork and Clone the Repository
 
-8. **Commit your changes** with clear messages:
-   ```bash
-   git add .
-   git commit -m "Add Spanish localization with custom branding
-   
-   - Translated all UI strings to Mexican Spanish
-   - Customized CSS colors for [Your Organization] branding
-   - Enabled Spanish language switching
-   - Updated footer with organization info"
-   ```
+**Fork the repository** to your GitHub account, then **clone your fork** to your local machine.
 
-9. **Push to your fork** and create a pull request
+### 2. Create a New Branch
 
-### Understanding CSS Customization for Localization
+```bash
+git checkout -b spanish-localization
+```
 
-When localizing for a specific market, consider that color meanings vary by culture.
+### 3. Complete the Localization Tasks
 
-**Your CSS Customization Should:**
+- Translate `en-us.json` → `es-mx.json`
+- Copy and adapt `LocCompetencies_en-US.html` → `LocCompetencies_es-MX.html`
+- Update language-specific elements (lang attribute, meta tags, etc.)
+
+### 4. Customize CSS for Your Target Audience
+
+This is an optional but recommended step that helps you practice culturally appropriate localization.
+
+#### Understanding CSS Customization for Localization
+
+When localizing for a specific market, consider that color meanings and design preferences vary by culture. Your CSS customization should:
 - Reflect the target organization's brand identity
 - Consider cultural color associations in the target market
 - Maintain sufficient contrast for accessibility (WCAG AA: 4.5:1 for text)
 - Be tested with native speakers and target audience members
 
-**Common CSS Changes for Localization:**
+#### What to Customize
+
+**1. Brand Colors** - Open `locessential-styles.css` and modify the CSS variables in the `:root` section:
+
+```css
+:root {
+    --primary-color: #1c6399;      /* Main brand color */
+    --secondary-color: #2b7bb9;    /* Secondary brand color */
+    --accent-color: #50A5E6;       /* Accent/highlight color */
+    --success-color: #3dd598;      /* Success indicators (strengths) */
+    --pink-accent: #ef91c6;        /* Used for areas needing development */
+}
+```
+
+**Example for a Mexican university:**
+```css
+:root {
+    --primary-color: #1a472a;      /* Deep green */
+    --secondary-color: #2d5f3f;    /* Forest green */
+    --accent-color: #d4af37;       /* Gold accent */
+    --success-color: #2d5f3f;      /* Forest green */
+}
+```
+
+**Example for an academic institution:**
+```css
+:root {
+    --primary-color: #003366;      /* University blue */
+    --secondary-color: #0055A4;      
+    --accent-color: #FFB81C;       /* School gold */
+    --success-color: #00A651;        
+}
+```
+
+**2. Typography** - Adjust fonts if needed for your target language/script:
+```css
+--font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+--font-heading: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+```
+
+**Note**: Some languages need different font families (Arabic, Chinese, etc.) or more spacing (German text is ~30% longer than English).
+
+**3. Footer** - Update copyright and contact information to reflect your organization
+
+**4. Logo/Branding** (optional) - Add organization logo to header if desired
+
+#### CSS Customization Tips
+
+- **Start simple**: Keep all class names unchanged - only modify color values and text
+- **Test accessibility**: Use tools like WebAIM's Contrast Checker to ensure sufficient contrast
+- **Preview on devices**: Test on multiple screen sizes before committing
+- **Document changes**: Add comments explaining your customization decisions
+- **Keep structure intact**: Maintain the original file organization
+
+#### Common CSS Changes for Localization
+
 1. **Colors** - Brand alignment and cultural appropriateness
-2. **Fonts** - May need different font families for certain scripts (Arabic, Chinese, etc.)
+2. **Fonts** - Different font families for certain scripts
 3. **Text direction** - RTL (right-to-left) for Arabic, Hebrew
-4. **Spacing** - Some languages need more space (German text is ~30% longer than English)
+4. **Spacing** - Accommodate text expansion/contraction
 
-### Enabling/Disabling the Spanish "Coming Soon" Message
+### 5. Enable Spanish Functionality
 
-The application includes a configuration constant that controls whether Spanish localization is active:
+In `resource-loader.js`, find the `SPANISH_COMING_SOON` constant (around line 30):
 
-**Location**: `resource-loader.js`, in the `changeLanguage()` method (around line 30)
-
-**To show "coming soon" message** (default state):
+**Change from:**
 ```javascript
 const SPANISH_COMING_SOON = true;
 ```
 
-**To enable Spanish localization** (after translation is complete):
+**To:**
 ```javascript
 const SPANISH_COMING_SOON = false;
 ```
 
-This makes it easy to switch between development and production modes without commenting/uncommenting code.
+This disables the "coming soon" message and enables actual language switching. This makes it easy to toggle between development and production modes.
 
-### For Other Localizers
+### 6. Test Your Work Thoroughly
+
+Test in a browser and verify:
+- All translated text displays correctly
+- Color scheme works well and is accessible
+- Language switching functionality works
+- Responsive design works on mobile devices
+- Print preview shows proper formatting
+- No JavaScript console errors
+
+### 7. Commit Your Changes
+
+Write clear, descriptive commit messages:
+
+```bash
+git add .
+git commit -m "Add Spanish localization with custom branding
+
+- Translated all UI strings to Mexican Spanish
+- Customized CSS colors for [Your Organization] branding
+- Enabled Spanish language switching
+- Updated footer with organization info"
+```
+
+### 8. Push and Create Pull Request
+
+Push to your fork and create a pull request to the main repository.
+
+---
+
+## For Other Localizers
 
 We welcome translations into any language! Follow the same process as above, using the appropriate locale codes.
 
-#### Locale Naming Convention
-- Use ISO language-region format: `zh-CN`, `fr-CI`, `pt-BR`, etc.
+### Locale Naming Convention
+
+- Use ISO language-region format: `zh-CN`, `fr-CA`, `pt-BR`, etc.
 - File names: `LocCompetencies_[locale].html` and `[locale-lowercase].json`
+
+---
 
 ## Quality Standards
 
 ### Translation Quality
+
 - Maintain the original meaning and intent
 - Adapt cultural references appropriately
 - Keep technical terminology consistent
 - Preserve HTML structure and formatting
-- Don't translate:
+- **Don't translate:**
   - File names or paths in code
   - HTML element IDs
   - CSS class names
   - JavaScript variable names
 
 ### Testing Checklist
+
 Before submitting, ensure:
 - [ ] All text is translated (no English remnants)
 - [ ] Language picker switches correctly
@@ -134,53 +189,14 @@ Before submitting, ensure:
 - [ ] Responsive design works on mobile
 - [ ] Print functionality works
 
-### CSS Customization for Target Audience
-
-The application uses LocEssentials branding colors and styling. When localizing for a specific audience or organization, you may want to customize the CSS:
-
-#### What to Customize
-1. **Colors** - Update CSS variables in `locessential-styles.css`:
-   ```css
-   :root {
-       --primary-color: #1c6399;      /* Main brand color */
-       --secondary-color: #2b7bb9;    /* Secondary brand color */
-       --accent-color: #50A5E6;       /* Accent/highlight color */
-       --success-color: #3dd598;      /* Success/strength indicators */
-       --warning-color: #FF0000;      /* Warning/improvement indicators */
-       --pink-accent: #ef91c6;        /* Secondary accent */
-   }
-   ```
-
-2. **Typography** - Adjust fonts if needed:
-   ```css
-   --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-   --font-heading: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-   ```
-
-3. **Logo/Branding** - Add organization logo to header if desired
-4. **Footer** - Update copyright and contact information
-
-#### Example: Academic Institution Branding
-```css
-:root {
-    --primary-color: #003366;        /* University blue */
-    --secondary-color: #0055A4;      
-    --accent-color: #FFB81C;         /* School gold */
-    --success-color: #00A651;        
-}
-```
-
-#### Tips
-- Test color contrast for accessibility (WCAG AA minimum)
-- Preview on multiple devices before committing
-- Keep the original file structure intact
-- Document your changes in comments
-
 ### Code Style
+
 - Maintain consistent indentation (2 spaces)
 - Keep line length reasonable (<120 characters)
 - Add comments for complex logic
 - Follow existing code patterns
+
+---
 
 ## Bug Reports
 
@@ -191,6 +207,8 @@ Found a bug? Please create an issue with:
 - Browser and OS information
 - Screenshots if applicable
 
+---
+
 ## Feature Requests
 
 Have an idea? Create an issue describing:
@@ -198,6 +216,8 @@ Have an idea? Create an issue describing:
 - How it would work
 - Why it would be valuable
 - Any implementation ideas
+
+---
 
 ## Pull Request Process
 
@@ -214,11 +234,15 @@ Have an idea? Create an issue describing:
 4. **Reference issues** in your PR description if applicable
 5. **Be patient** - we'll review as soon as possible!
 
+---
+
 ## Questions?
 
 - Check existing issues and pull requests first
 - For localization questions: info@locessentials.com
 - For technical questions: Create a GitHub issue
+
+---
 
 ## Recognition
 
