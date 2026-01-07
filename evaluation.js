@@ -1004,24 +1004,35 @@ function setupEventHandlers(strings) {
         nextStepsList.innerHTML = '';
         
         try {
-            // Add recommendations for each dimension
-            for (const dimension of weakestDimensions) {
-                const recommendationKey = dimension.key;
-                if (developmentRecommendations[recommendationKey]) {
-                    const recItem = document.createElement('li');
-                    recItem.innerHTML = `<strong>${dimension.name}:</strong> ${developmentRecommendations[recommendationKey]}`;
-                    nextStepsList.appendChild(recItem);
+            // Check if user is a high performer (all dimensions 4+)
+            if (weakestDimensions.length === 0) {
+                // Display high performer recommendations
+                const highPerformerRec = getNestedProperty(strings, 'recommendations.highPerformer') || 
+                    'Excellent work! Continue to maintain and grow your expertise across all dimensions.';
+                
+                const recItem = document.createElement('li');
+                recItem.innerHTML = highPerformerRec;
+                nextStepsList.appendChild(recItem);
+            } else {
+                // Add recommendations for each dimension that needs improvement
+                for (const dimension of weakestDimensions) {
+                    const recommendationKey = dimension.key;
+                    if (developmentRecommendations[recommendationKey]) {
+                        const recItem = document.createElement('li');
+                        recItem.innerHTML = `<strong>${dimension.name}:</strong> ${developmentRecommendations[recommendationKey]}`;
+                        nextStepsList.appendChild(recItem);
+                    }
                 }
             }
         } catch (error) {
             console.error("Error displaying development recommendations:", error);
         }
     }
+
 }
 
 // NOW we export the functions to the global window object
 // IMPORTANT: This must be done AFTER the functions are defined
 window.buildEvaluationSection = buildEvaluationSection;
 window.buildResultsSection = buildResultsSection;
-
 window.setupEventHandlers = setupEventHandlers;
